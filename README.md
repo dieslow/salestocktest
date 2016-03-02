@@ -16,6 +16,11 @@ Port
 3000
 ```
 
+Buka file App.js
+```
+Setting host + dbname mongo
+```
+
 Crud Item Collections
 ```
 METHOD  : RESOURCES
