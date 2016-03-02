@@ -84,20 +84,11 @@ router.post('/', function(req, res, next) {
 //update item
 router.put('/:name', function(req, res, next) {
 	
-	var newItem = Item({
-		description	: req.body.description,
-		stock	:  req.body.stock,	
-		price		: req.body.price,
-		"location.loc_num": req.body.type_cat,
-		"location.rack": req.body.rack,
-		"category.type_cat": req.body.type_cat,
-		"category.desc_cat": req.body.desc_cat,
-		status_aktif : req.body.status_aktif,
-		created_at	: req.body.created_at,
-		updated_at	: req.body.created_at
-	});
-	
-	Item.findOneAndUpdate({ name : req.params.name}, newItem, function(err, item) {
+	Item.findOneAndUpdate({ name : req.params.name}, { description : req.body.description, 
+	stock : req.body.stock, price : req.body.price, "location.loc_num": req.body.type_cat, 
+	"location.rack": req.body.rack, "category.type_cat": req.body.type_cat, "category.desc_cat": req.body.desc_cat,
+	status_aktif : req.body.status_aktif, updated_at	: req.body.updated_at}, 
+	function(err, item) {
 		if (err ) {
 			res.send( err );
 		}else{
