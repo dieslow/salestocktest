@@ -35,7 +35,8 @@ GET     : /items/stock/:stock
 //find by id category
 GET     : /items/category/:type_cat
 
-//insert item
+//insert item 
+//header : Content-Type , value : application/x-www-form-urlencoded
 POST    : /items/
 
 //update item
