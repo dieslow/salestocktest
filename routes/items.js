@@ -12,37 +12,20 @@ router.get('/', function(req, res, next) {
 	});
 });
 
-router.get('/create/', function(req, res, next) {
-	var newItem = Item({
-		"name"		: 'tees06',
-		"description"	: 'baju 06',
-		"stock"	: 20,	
-		"price"		: 75000,
-		"location": {
-			"loc_num": 1,
-			"rack": "1-01"
-		},
-		"category": {
-			"type_cat": 1,
-			"desc_cat": 'music'
-		},
-		"status_aktif" : true,
-		"created_at": '2016-03-01T22:07:15.178Z',
-		"updated_at": '2016-03-01T22:07:15.178Z'
-	});
-	
-	newItem.save(function(err) {
+//find by name
+router.get('/:name', function(req, res, next) {
+	Item.findOne({ name : req.params.name}, function(err, item) {
 		if (err ) {
 			res.send( err );
 		}else{
-			res.send({success:true});
+			res.send(item);
 		};
 	});
 });
 
-//find by name
-router.get('/:name', function(req, res, next) {
-	Item.findOne({ name : req.params.name}, function(err, item) {
+//find by description like
+router.get('/description/:description', function(req, res, next) {
+	Item.find({ description : { $regex :req.params.description} }, function(err, item) {
 		if (err ) {
 			res.send( err );
 		}else{
