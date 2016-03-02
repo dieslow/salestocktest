@@ -106,4 +106,14 @@ router.put('/:name', function(req, res, next) {
 	});
 });
 
+router.delete('/:name', function(req, res, next) {
+	Item.findOneAndRemove({ name : req.params.name}, function(err, item) {
+		if (err ) {
+			res.send( err );
+		}else{
+			res.send({success:true});
+		};
+	});
+});
+
 module.exports = router;
