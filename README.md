@@ -49,9 +49,9 @@ PUT     : /items/:name
 
 //update item
 DELETE  : /items/:name
-
 ```
-node modules
+
+tools :
 ```
 https://www.mongodb.org
 https://robomongo.org
@@ -62,5 +62,5 @@ http://mongoosejs.com
 Test : 
 ```
 cloud  : https://whispering-anchorage-15723.herokuapp.com 
-tool : POSTMAN - [http://www.getpostman.com/](http://www.getpostman.com/)
+tool : POSTMAN - (http://www.getpostman.com)
 ````
